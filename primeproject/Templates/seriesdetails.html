@@ -1,0 +1,256 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <title>{{ series.title }}</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute;
+}
+
+.centered-container {
+  width: 1220px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+html {
+  font-family: 'Open Sans', Arial, sans-serif;
+  color: #B5B5BE;
+  background-color: #bebebe;
+}
+
+body {
+  min-width: 1280px;
+}
+
+
+
+/* ~~~ sections ~~~ */
+
+
+
+.section {
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  z-index: 1;
+}
+
+.section + .section {
+  margin-top: 30px;
+}
+
+.section-header {
+  position: relative;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: #FFFFFF;
+}
+
+.section-header::after {
+  content: "...";
+  position: relative;
+  top: -5px;
+  left: 9px;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  color: #CC364E;
+}
+
+.movie-details-text {
+  font-size: 16px;
+  line-height: 22px;
+  color: #B5B5BE;
+}
+
+.movie-details-text + .movie-details-text {
+  margin-top: 7px;
+}
+
+.movie-details-highlight {
+  font-weight: 700;
+}
+
+.movie-details-highlight {
+  font-weight: 700;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-card {
+  width: 265px;
+  color: #B5B5BE;
+  text-decoration: none;
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.movie-card:hover {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  transform: scale(1.03);
+}
+
+.movie-card:not(:nth-of-type(4n+1)) {
+  margin-left: 40px;
+}
+
+.movie-poster {
+  width: 265px;
+  height: 148px;
+}
+
+.movie-meta {
+  margin-top: 11px;
+  font-size: 0;
+}
+
+.movie-meta span {
+  padding: 0 3px;
+  border: 1px solid currentColor;
+  font-size: 13px;
+}
+
+.movie-meta span + span {
+  margin-left: 5px;
+}
+
+.movie-lang {
+  font-style: italic;
+  text-transform: uppercase;
+  padding: 0 7px 0 4px;
+}
+
+.movie-description {
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;  
+  margin-top: 11px;
+}
+
+.movie-description-text + .movie-description-text {
+  margin-top: 15px;
+}
+
+.movie-info {
+  padding: 125px 0px 150px;
+  color: white;
+  background:linear-gradient( to right, #000 40%,transparent 70%),url("{{ series.cover_image.url }}")no-repeat center / cover;
+  background-attachment: fixed;
+  object-fit: cover;
+  background-repeat: no-repeat;
+ 
+}
+
+.movie-info img {
+  width: 380px;
+
+  margin-bottom: 35px;
+}
+
+.movie-info p {
+  width: 530px;
+  font-size: 16px;
+
+  margin-top: 30px;
+}
+
+.btn-block {
+  margin-top: 30px;
+}
+
+.btn-block button {
+  border: none;
+}
+.btn-block a{
+text-decoration: none;
+color: #FFFFFF;
+}
+.btn-watch {
+  padding: 10px 25px;
+  background-color: #cc364e;
+  border-radius: 23px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.btn-watch:hover {
+  background-color: #E02A48;
+}
+
+.btn-wait {
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase;
+  font-size: 15px;
+  text-decoration: underline;
+  margin-left: 25px;
+}
+
+.btn-wait:hover{
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+    </style>
+</head>
+
+<body>
+
+
+    <main class="movie-info">
+      <div class="centered-container">
+      <h1 style="text-transform: uppercase; font-size: 50px;">{{ series.title }}</h1>
+        <div class="movie-meta">
+           <span class="movie-duration">{{ series.season }}</span>
+           <span class="movie-lang">IMDB <i class="ri-star-line"></i> {{ series.ratings }}</span>
+         </div>
+        <p>{{ series.description }}<p>
+        <div class="btn-block">
+            <a href="{% url 'seriesvideo' series.id %}">  <button class="btn-watch">Watch Now</button></a>
+        </div>
+      </div>
+    </main>
+    
+  </body>
+</html>
+    
+    
+    <!-- <img src="" alt="{{ series.title }}">
+    <p>Genre: {{ series.get_genre_display }}</p>
+    <p>{{ series.description }}</p>
+    <p>Season: {{ series.season }}</p>
+    <p>Ratings: {{ series.ratings }}</p>
+    <video controls>
+    <source src="{{ series.video.url }}" type="video/mp4">
+    Your browser does not support the video tag.
+    </video> -->
+      
+</body>
+</html>
+{% endblock %}

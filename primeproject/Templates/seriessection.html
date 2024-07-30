@@ -1,0 +1,393 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Series</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-R7YanJskVeuUzpfLMl3R96Lhf0Cy5oW1RviLyc8k+K8Ib90HPG+Lh1do4Mh/a04C" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/movies.css' %}">
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --handle-size: 3rem;
+            --img-gap: .60rem;
+        }
+
+        body {
+            margin: 0;
+            background-color: black;
+        }
+
+        .row {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .slider {
+            --items-per-screen: 4;
+            --slider-index: 0;
+            display: flex;
+            flex-grow: 1;
+            margin: 0 var(--img-gap);
+            transform: translateX(calc(var(--slider-index) * -100%));
+            transition: transform 250ms ease-in-out;
+        }
+
+        .slider>img {
+            flex: 0 0 calc(100% / var(--items-per-screen));
+            max-width: calc(100% / var(--items-per-screen));
+            aspect-ratio: 16 / 9;
+            padding: var(--img-gap);
+            border-radius: 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .slider img:hover {
+            transform: scale(1.1);
+            border-radius: 1rem;
+        }
+
+        .slider a {
+            flex: 0 0 calc(100% / var(--items-per-screen));
+            max-width: calc(100% / var(--items-per-screen));
+            aspect-ratio: 16 / 9;
+            padding: var(--img-gap);
+            border-radius: 1rem;
+            transition: transform 0.3s ease-in-out;
+            display: block;
+        }
+
+        .slider a:hover img {
+            transform: scale(1.1);
+            border-radius: 1rem;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            transition: none;
+            /* Disable individual image transition, apply it to the anchor tag instead */
+        }
+
+        .handle {
+            border: none;
+            border-radius: 1rem;
+            flex-grow: 0;
+            flex-shrink: 0;
+            background-color: rgba(0, 0, 0, 0.25);
+            z-index: 10;
+            margin: var(--img-gap) 0;
+            width: var(--handle-size);
+            cursor: pointer;
+            font-size: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            line-height: 0;
+            transition: background-color 150ms ease-in-out;
+        }
+
+        .left-handle {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .right-handle {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .handle:hover,
+        .handle:focus {
+            background-color: rgba(255, 255, 255, .5);
+        }
+
+        .text {
+            transition: transform 150ms ease-in-out;
+        }
+
+        .handle:hover .text,
+        .handle:focus .text {
+            transform: scale(1.2);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: .5rem calc(var(--img-gap) * 2 + var(--handle-size));
+            align-items: center;
+        }
+
+        .title {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .progress-bar {
+            display: flex;
+            gap: .25rem;
+        }
+
+        .progress-item {
+            flex: 0 0 1.5rem;
+            min-width: 1.5rem;
+            height: .5rem;
+            background-color: rgba(255, 255, 255, .5);
+        }
+
+        .progress-item.active {
+            background-color: rgba(255, 255, 255, .9);
+        }
+
+        @media (max-width: 1000px) {
+            .slider {
+                --items-per-screen: 3;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .slider {
+                --items-per-screen: 2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--image animation starts-->
+    <section>
+        <div class="scroll-holder">
+            <div class="scroll-tray">
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/1.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/2.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/3.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/4.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/5.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/6.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/7.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/8.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/9.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/10.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/11.jpeg" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/12.jpeg" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/13.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/12.jpeg" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/11.jpeg" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/10.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/9.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/8.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/7.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/6.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/5.webp" />
+                </div>
+            </div>
+            <div class="scroll-tray">
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/22.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/23.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/24.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/25.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/26.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/27.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/1.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/2.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/3.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/4.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/5.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/6.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/7.webp" />
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/itlearntogether/movie-slider-effect/main/img/8.webp" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--image animation ends-->
+    <!--Award Winning Tv shows movies start-->
+    <div class="row">
+        <div class="header">
+            <h3 class="title">Award Winning Tv shows </h3>
+            <div class="progress-bar"></div>
+        </div>
+        <div class="container">
+            <button class="handle left-handle">
+                <div class="text">&#8249;</div>
+            </button>
+            <div class="slider">
+
+                {% for series in awardwin %}
+                <a href="{% url 'series_detail' series.id %}">
+                    <img src="{{ series.cover_image.url }}">
+                </a>
+                {% endfor %}
+
+            </div>
+            <button class="handle right-handle">
+                <div class="text">&#8250;</div>
+            </button>
+        </div>
+    </div>
+    <!--Action movie ends-->
+    <!--Epic worlds movies start-->
+    <div class="row">
+        <div class="header">
+            <h3 class="title">Epic Worlds </h3>
+            <div class="progress-bar"></div>
+        </div>
+        <div class="container">
+            <button class="handle left-handle">
+                <div class="text">&#8249;</div>
+            </button>
+            <div class="slider">
+                {% for series in Epicworlds %}
+             <a href="{% url 'series_detail' series.id %}">
+                <img src="{{ series.cover_image.url }}">
+             </a>
+                {% endfor %}
+            </div>
+            <button class="handle right-handle">
+                <div class="text">&#8250;</div>
+            </button>
+        </div>
+    </div>
+    <!-- ends-->
+    <!--Epic worlds movies start-->
+    <div class="row">
+        <div class="header">
+            <h3 class="title">Exciting Tv Shows </h3>
+            <div class="progress-bar"></div>
+        </div>
+        <div class="container">
+            <button class="handle left-handle">
+                <div class="text">&#8249;</div>
+            </button>
+            <div class="slider">
+                {% for series in Excitingtv %}
+            <a href="{% url 'series_detail' series.id %}">
+                <img src="{{ series.cover_image.url }}">
+            </a>
+                {% endfor %}
+            </div>
+            <button class="handle right-handle">
+                <div class="text">&#8250;</div>
+            </button>
+        </div>
+    </div>
+    <!-- ends-->
+    <!--Marvel movies start-->
+    <div class="row">
+        <div class="header">
+            <h3 class="title"> Marvel Tv shows </h3>
+            <div class="progress-bar"></div>
+        </div>
+        <div class="container">
+            <button class="handle left-handle">
+                <div class="text">&#8249;</div>
+            </button>
+            <div class="slider">
+                {% for series in Marvel %}
+            <a href="{% url 'series_detail' series.id %}">
+                <img src="{{ series.cover_image.url }}">
+            </a>
+                {% endfor %}
+            </div>
+            <button class="handle right-handle">
+                <div class="text">&#8250;</div>
+            </button>
+        </div>
+    </div>
+    <!-- ends-->
+
+
+    <script src="{% static 'js/movie.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}

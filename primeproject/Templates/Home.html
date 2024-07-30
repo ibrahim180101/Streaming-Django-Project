@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/rent.css' %}">
+    <style>
+.full-screen{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.full-screen video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.video-overlay-text{
+  position: absolute;
+  top: 70%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  margin-left:20px ;
+}
+.video-overlay-text a {
+    margin-left: 20px;
+    text-decoration: none;
+    background-color: #000000; 
+    color: white;
+    width: 150px;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.video-overlay-text a:hover {
+    background-color: #3300ff;
+    transform: scale(1.05); 
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="full-screen">
+        <video src="{% static 'images\video1.mp4' %}" autoplay control loop></video>
+        <div class="video-overlay-text">
+            <div>
+                <p>Art is the mirror that reflects our souls,
+                    <br> revealing the colors of our deepest desires</p>
+            </div>
+            
+        <div style="display: flex;">
+            <a href=""><i class="btn1">Watch Now</a></i>
+            <a href=""><i class="btn1">More Info</a></i>
+        </div>
+        </div>
+    </div>
+
+
+    <h1>Watch Your Favorite Movies</h1>
+    <div class="container">
+        {% for movie in movieall %}
+        <div class="box">
+            <div class="imgBx">
+                <img src="{{ movie.cover_image.url }}" class="card-img-top" alt="Movie Image">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 class="card-title">{{ movie.title }}</h2>
+                    <p>Genre: {{ movie.get_genre_display }}</p>     
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <h1>Watch Your Favorite Tv shows</h1>
+    <div class="container">
+        {% for movie in seriesall %}
+      
+        <div class="box">
+            <div class="imgBx">
+                <img src="{{ movie.cover_image.url }}" class="card-img-top" alt="Movie Image">
+            </div>
+            <div class="content">
+                <div>
+                    <h2 class="card-title">{{ movie.title }}</h2>
+                    <p>Genre: {{ movie.get_genre_display }}</p>     
+                </div>
+
+            </div>
+        </div>
+  
+        {% endfor %}
+    </div>
+    <script src="{% static 'js/rent.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}
