@@ -27,7 +27,8 @@ This screenshot highlights the subscription plans available to users, offering a
 
 ![Screenshot 2024-08-15 141659](https://github.com/user-attachments/assets/8e95257e-a2dc-4420-9f47-ccd95e63f1f3)
 
-![Screenshot 2024-08-15 141732](https://github.com/user-attachments/assets/4fe512ab-90fc-4b8d-b3d6-0c2f8c93b5b9)
+![Screenshot 2024-08-15 141740](https://github.com/user-attachments/assets/9f114611-6a3a-49d3-8a83-e01a85aef8cc)
+
 ↑This screenshot displays the Razorpay checkout page for subscribing to a plan. It features a secure and user-friendly interface where users can enter their payment details and finalize their subscription. The page includes fields for payment information, a summary of the selected subscription plan, and a confirmation button to complete the process.
 
 
