@@ -13,4 +13,6 @@ The form fields are designed to be user-friendly and validate user input effecti
 This image showcases the home page of the video streaming application, featuring a clean and intuitive interface where users can browse through various categories and genres of movies. The layout is designed to provide a seamless user experience with easy navigation and visually appealing elements.
 
 ![Screenshot 2024-08-15 135703](https://github.com/user-attachments/assets/a3eb0dfa-8560-4ea8-942b-e6b5d6d709d7)
+This screenshot displays the movie details page, where users can find in-depth information about the selected movie, including its title, genre, description, and price. Users can also view the cover image of the movie and series
 ![Screenshot 2024-07-30 145135](https://github.com/user-attachments/assets/e3235d7d-b4d6-4127-a2be-20e3b8dce861)
+This screenshot highlights the subscription plans available to users, offering a variety of options tailored to different viewing needs and budgets. Each plan includes detailed information about features, pricing, and benefits, allowing users to make an informed decision when selecting the best subscription option for their needs
