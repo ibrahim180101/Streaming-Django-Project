@@ -9,5 +9,8 @@ The form fields are designed to be user-friendly and validate user input effecti
 ![Screenshot 2024-07-30 144937](https://github.com/user-attachments/assets/86a48c83-5d82-47a7-9ffc-67530b82c5e6)
 ![Screenshot 2024-07-30 144905](https://github.com/user-attachments/assets/0f83f151-e42d-401d-abd2-5ba2f2d47a94)
 ![Screenshot 2024-07-30 145118](https://github.com/user-attachments/assets/124c0414-6fa9-4712-8e57-f921e9588aba)
+
+This image showcases the home page of the video streaming application, featuring a clean and intuitive interface where users can browse through various categories and genres of movies. The layout is designed to provide a seamless user experience with easy navigation and visually appealing elements.
+
 ![Screenshot 2024-08-15 135703](https://github.com/user-attachments/assets/a3eb0dfa-8560-4ea8-942b-e6b5d6d709d7)
 ![Screenshot 2024-07-30 145135](https://github.com/user-attachments/assets/e3235d7d-b4d6-4127-a2be-20e3b8dce861)
