@@ -20,3 +20,15 @@ This screenshot displays the movie details page, where users can find in-depth i
 ![Screenshot 2024-07-30 145135](https://github.com/user-attachments/assets/e3235d7d-b4d6-4127-a2be-20e3b8dce861)
 ↑
 This screenshot highlights the subscription plans available to users, offering a variety of options tailored to different viewing needs and budgets. Each plan includes detailed information about features, pricing, and benefits, allowing users to make an informed decision when selecting the best subscription option for their needs
+
+![Screenshot 2024-08-15 141633](https://github.com/user-attachments/assets/0453cf39-7cb6-459b-87d7-34eca0f0d3ff)
+
+![Screenshot 2024-08-15 141643](https://github.com/user-attachments/assets/4564c79c-1662-4f6d-b936-bf2bf7ece073)
+
+![Screenshot 2024-08-15 141659](https://github.com/user-attachments/assets/8e95257e-a2dc-4420-9f47-ccd95e63f1f3)
+
+![Screenshot 2024-08-15 141732](https://github.com/user-attachments/assets/4fe512ab-90fc-4b8d-b3d6-0c2f8c93b5b9)
+↑This screenshot displays the Razorpay checkout page for subscribing to a plan. It features a secure and user-friendly interface where users can enter their payment details and finalize their subscription. The page includes fields for payment information, a summary of the selected subscription plan, and a confirmation button to complete the process.
+
+
+
